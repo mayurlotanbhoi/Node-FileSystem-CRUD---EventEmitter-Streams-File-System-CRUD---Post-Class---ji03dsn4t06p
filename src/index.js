@@ -1,18 +1,17 @@
 const fs = require('fs')
 
 const myFileWriter = async (fileName, fileContent) => {
-	fs.writeFileSync(fileName,fileContent,(err) => {
+	fs.writeFile(fileName,fileContent,(err) => {
 		if(err) throw err;
 		console.log("File has been saved!");
 	});
 }
 
 const myFileReader = async (fileName) => {
-	let data = fs.readFileSync(fileName,{encoding:'utf8', flag:'r'},(err) => {
-		if(err) throw err;		
-		})
-		data = data + '\n';
-		console.log(data.toString());
+	fs.readFile(fileName,(err,data) => {
+		if(err) throw err;
+		console.log(data + '\n');
+	})
 }
 
 const myFileUpdater = async (fileName, fileContent) => {
@@ -30,8 +29,8 @@ const myFileDeleter = async (fileName) => {
 }
 myFileWriter("File.txt","Hello");
 myFileReader('File.txt');
-myFileUpdater('File.txt',' World');
-myFileDeleter('File.txt');
+// myFileUpdater('File.txt',' World');
+// myFileDeleter('File.txt');
 
 
 module.exports = { myFileWriter, myFileUpdater, myFileReader, myFileDeleter }
