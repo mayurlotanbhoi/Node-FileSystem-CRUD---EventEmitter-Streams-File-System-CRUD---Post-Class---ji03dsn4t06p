@@ -1,11 +1,6 @@
 const fs = require('fs/promises')
 
 const myFileWriter = async (fileName, fileContent) => {
-	// write code here
-	// dont chnage function name
-	// fs.mkdir('node',function(){
-	// 	fs.writeFileSync('./node/File.txt',"Hello");
-	// });
 	fs.writeFile(fileName,fileContent,(err) => {
 		if(err) throw err;
 		console.log("File has been saved!");
@@ -13,8 +8,10 @@ const myFileWriter = async (fileName, fileContent) => {
 }
 
 const myFileReader = async (fileName) => {
-	// write code here
-	// dont chnage function name
+	fs.readFile(fileName,(err) => {
+		if(err) throw err;
+		console.log("file read successfully");
+	})
 }
 const myFileUpdater = async (fileName, fileContent) => {
 	// write code here
@@ -28,7 +25,7 @@ const myFileDeleter = async (fileName) => {
 	});
 }
 myFileWriter("File.txt","Hello");
-
+myFileReader("File.txt");
 myFileDeleter('File.txt');
 
 
