@@ -1,4 +1,4 @@
-const fs = require('fs')
+const fs = require('fs/promises')
 
 const myFileWriter = async (fileName, fileContent) => {
 	fs.writeFile(fileName,fileContent,(err) => {
@@ -8,11 +8,8 @@ const myFileWriter = async (fileName, fileContent) => {
 }
 
 const myFileReader = async (fileName) => {
-	fs.readFile(fileName,(err,data) => {
-		if(err) throw err;
-		const data2 = data + '\n';
-		console.log(data2);
-	})
+	const data = await fs.readFile(fileName,'utf8');
+	return  console.log(data + '\n');
 }
 
 const myFileUpdater = async (fileName, fileContent) => {
@@ -28,7 +25,7 @@ const myFileDeleter = async (fileName) => {
 		console.log('File.txt was deleted');
 	});
 }
-myFileWriter("File.txt","Hello");
+// myFileWriter("File.txt","Hello");
 myFileReader('File.txt');
 // myFileUpdater('File.txt',' World');
 // myFileDeleter('File.txt');
