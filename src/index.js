@@ -25,10 +25,10 @@ const myFileDeleter = async (fileName) => {
 		console.log('File.txt was deleted');
 	});
 }
-// myFileWriter("File.txt","Hello");
+myFileWriter("File.txt","Hello");
 myFileReader('File.txt');
-// myFileUpdater('File.txt',' World');
-// myFileDeleter('File.txt');
+myFileUpdater('File.txt',' World');
+myFileDeleter('File.txt');
 
 
 module.exports = { myFileWriter, myFileUpdater, myFileReader, myFileDeleter }
