@@ -1,18 +1,15 @@
 const fs = require('fs/promises')
 
-const myFileReader = async (fileName) => {
-	const data = await fs.readFile(fileName,'utf8'); 
-		// if (err) throw err;
-		console.log(data);
-}
-// myFileReader('File.txt');
-
-
 const myFileWriter = async (fileName, fileContent) => {
 	fs.writeFile(fileName,fileContent,(err) => {
 		if(err) throw err;
 		console.log("File has been saved!");
 	});
+}
+
+const myFileReader = async (fileName) => {
+	const data = await fs.readFile(fileName,'utf8'); 
+		console.log(data);
 }
 
 const myFileUpdater = async (fileName, fileContent) => {
@@ -29,8 +26,9 @@ const myFileDeleter = async (fileName) => {
 	});
 }
 myFileWriter("File.txt","Hello");
-myFileUpdater('File.txt',' World');
 myFileReader('File.txt');
+myFileUpdater('File.txt',' World');
+
 myFileDeleter('File.txt');
 
 
