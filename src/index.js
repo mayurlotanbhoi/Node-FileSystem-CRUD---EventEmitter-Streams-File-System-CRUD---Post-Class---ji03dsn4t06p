@@ -8,8 +8,8 @@ const myFileWriter = async (fileName, fileContent) => {
 }
 
 const myFileReader = async (fileName) => {
-	const data = await fs.readFile(fileName,'utf8'); 
-		console.log(data);
+	const data = await fs.readFile(fileName,'utf8');
+	return  console.log(data);
 }
 
 const myFileUpdater = async (fileName, fileContent) => {
