@@ -16,8 +16,10 @@ const myFileReader = async (fileName) => {
   }
 }
 const myFileUpdater = async (fileName, fileContent) => {
-	// write code here
-	// dont chnage function name
+	fs.appendFile(fileName,fileContent,(err) => {
+		if(err) throw err;
+		console.log("file has been updated")
+	})
 }
 
 const myFileDeleter = async (fileName) => {
@@ -27,6 +29,7 @@ const myFileDeleter = async (fileName) => {
 	});
 }
 myFileWriter("File.txt","Hello");
+myFileUpdater('File.txt',' World');
 myFileReader("File.txt");
 myFileDeleter('File.txt');
 
