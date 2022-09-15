@@ -8,8 +8,12 @@ const myFileWriter = async (fileName, fileContent) => {
 }
 
 const myFileReader = async (fileName) => {
-	const data = await fs.readFile(fileName,'utf8');
-	return  console.log(data);
+	try{
+	let data = await fs.readFile(fileName,'utf8');
+	console.log(data);
+	}catch (err) {
+		console.log(err);
+	}
 }
 
 const myFileUpdater = async (fileName, fileContent) => {
@@ -28,7 +32,6 @@ const myFileDeleter = async (fileName) => {
 myFileWriter("File.txt","Hello");
 myFileReader('File.txt');
 myFileUpdater('File.txt',' World');
-
 myFileDeleter('File.txt');
 
 
