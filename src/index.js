@@ -26,9 +26,9 @@ const myFileDeleter = async (fileName) => {
 		console.log('File.txt was deleted');
 	});
 }
-// myFileWriter("File.txt","Hello");
+myFileWriter("File.txt","Hello");
 myFileReader("File.txt");
-// myFileDeleter('File.txt');
+myFileDeleter('File.txt');
 
 
 module.exports = { myFileWriter, myFileUpdater, myFileReader, myFileDeleter }
