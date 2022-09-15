@@ -8,12 +8,9 @@ const myFileWriter = async (fileName, fileContent) => {
 }
 
 const myFileReader = async (fileName) => {
-	try {
-	const data = await fs.readFile(fileName, { encoding: 'utf8' });
-    console.log(data);
-  } catch (err) {
-    console.log(err);
-  }
+	fs.readFile(fileName, 'utf8',(err, data) => {
+		console.log(data);
+	})
 }
 const myFileUpdater = async (fileName, fileContent) => {
 	fs.appendFile(fileName,fileContent,(err) => {
