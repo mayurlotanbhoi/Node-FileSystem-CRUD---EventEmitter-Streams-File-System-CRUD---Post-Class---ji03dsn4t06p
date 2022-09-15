@@ -7,11 +7,10 @@ const myFileWriter = async (fileName, fileContent) => {
 	});
 }
 const myFileReader = async (fileName) => {
-	fs.readFile(fileName,'utf-8',(err,data) => {
-		if(err) throw(err);
-		console.log(data)
-	})
-}
+	fs.readFile(fileName,'utf8')
+		.then(console.log)
+  		.catch(console.error);
+	  };
 const myFileUpdater = async (fileName, fileContent) => {
 	fs.appendFile(fileName,fileContent,(err) => {
 		if(err) throw err;
@@ -27,7 +26,7 @@ const myFileDeleter = async (fileName) => {
 }
 myFileWriter("File.txt","Hello");
 myFileUpdater('File.txt',' World');
-myFileReader("File.txt");
+myFileReader('File.txt');
 myFileDeleter('File.txt');
 
 
