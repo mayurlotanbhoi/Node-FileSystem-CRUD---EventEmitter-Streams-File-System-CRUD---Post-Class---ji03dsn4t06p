@@ -21,12 +21,14 @@ const myFileUpdater = async (fileName, fileContent) => {
 }
 
 const myFileDeleter = async (fileName) => {
-	// write code here
-	// dont chnage function name
+	fs.unlink('File.txt',(err) => {
+		if(err) throw err;
+		console.log('File.txt was deleted');
+	});
 }
 myFileWriter();
-myFileReader();
-myFileUpdater();
+// myFileReader();
+// myFileUpdater();
 myFileDeleter();
 
 
