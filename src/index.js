@@ -1,16 +1,20 @@
 const fs = require('fs/promises')
 
+const myFileReader = async (fileName) => {
+	const data = await fs.readFile(fileName,'utf8'); 
+		// if (err) throw err;
+		console.log(data);
+}
+// myFileReader('File.txt');
+
+
 const myFileWriter = async (fileName, fileContent) => {
 	fs.writeFile(fileName,fileContent,(err) => {
 		if(err) throw err;
 		console.log("File has been saved!");
 	});
 }
-const myFileReader = async (fileName) => {
-	fs.readFile(fileName,'utf8')
-		.then(console.log)
-  		.catch(console.error);
-	  };
+
 const myFileUpdater = async (fileName, fileContent) => {
 	fs.appendFile(fileName,fileContent,(err) => {
 		if(err) throw err;
