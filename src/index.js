@@ -11,15 +11,10 @@ const myFileWriter = async (fileName, fileContent) => {
 		console.log("File has been saved!");
 	});
 }
-myFileWriter();
-
-
 const myFileReader = async (fileName) => {
 	// write code here
 	// dont chnage function name
 }
-
-
 const myFileUpdater = async (fileName, fileContent) => {
 	// write code here
 	// dont chnage function name
@@ -29,7 +24,10 @@ const myFileDeleter = async (fileName) => {
 	// write code here
 	// dont chnage function name
 }
-
+myFileWriter();
+myFileReader();
+myFileUpdater();
+myFileDeleter();
 
 
 module.exports = { myFileWriter, myFileUpdater, myFileReader, myFileDeleter }
