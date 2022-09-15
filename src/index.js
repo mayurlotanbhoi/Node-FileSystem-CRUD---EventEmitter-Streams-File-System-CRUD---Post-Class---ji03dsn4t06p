@@ -6,11 +6,12 @@ const myFileWriter = async (fileName, fileContent) => {
 	// fs.mkdir('node',function(){
 	// 	fs.writeFileSync('./node/File.txt',"Hello");
 	// });
-	fs.writeFile('File.txt',"Hello",(err) => {
+	fs.writeFile(fileName,fileContent,(err) => {
 		if(err) throw err;
 		console.log("File has been saved!");
 	});
 }
+
 const myFileReader = async (fileName) => {
 	// write code here
 	// dont chnage function name
@@ -21,15 +22,14 @@ const myFileUpdater = async (fileName, fileContent) => {
 }
 
 const myFileDeleter = async (fileName) => {
-	fs.unlink('File.txt',(err) => {
+	fs.unlink(fileName,(err) => {
 		if(err) throw err;
 		console.log('File.txt was deleted');
 	});
 }
-myFileWriter();
-// myFileReader();
-// myFileUpdater();
-myFileDeleter();
+myFileWriter("File.txt","Hello");
+
+myFileDeleter('File.txt');
 
 
 module.exports = { myFileWriter, myFileUpdater, myFileReader, myFileDeleter }
