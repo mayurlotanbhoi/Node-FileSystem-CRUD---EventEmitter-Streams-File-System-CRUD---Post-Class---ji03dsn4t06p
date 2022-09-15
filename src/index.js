@@ -11,7 +11,7 @@ const myFileReader = async (fileName) => {
 	const data = fs.readFileSync(fileName,{encoding:'utf8', flag:'r'},(err) => {
 		if(err) throw err;		
 		})
-		console.log(data.toString());
+		// console.log(data.toString());
 }
 
 const myFileUpdater = async (fileName, fileContent) => {
