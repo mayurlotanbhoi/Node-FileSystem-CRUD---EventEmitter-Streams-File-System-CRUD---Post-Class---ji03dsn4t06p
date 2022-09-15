@@ -10,7 +10,8 @@ const myFileWriter = async (fileName, fileContent) => {
 const myFileReader = async (fileName) => {
 	fs.readFile(fileName,(err,data) => {
 		if(err) throw err;
-		console.log(data + '\n');
+		let data2 = data + '\n';
+		console.log(data2);
 	})
 }
 
