@@ -8,9 +8,13 @@ const myFileWriter = async (fileName, fileContent) => {
 }
 
 const myFileReader = async (fileName) => {
-	const data = await fs.readFile(fileName,'utf8');
-	let data2 = data + '\n';
-	return  console.log(data2);
+	try {
+    const data = await fs.readFile(fileName, "UTF-8");
+    console.log(data);
+		return data
+  } catch (err) {
+    console.log(err);
+  }
 }
 
 const myFileUpdater = async (fileName, fileContent) => {
@@ -26,10 +30,10 @@ const myFileDeleter = async (fileName) => {
 		console.log('File.txt was deleted');
 	});
 }
-myFileWriter("File.txt","Hello");
-myFileReader('File.txt');
-myFileUpdater('File.txt',' World');
-myFileDeleter('File.txt');
+// myFileWriter("File.txt","Hello");
+// myFileReader('File.txt');
+// myFileUpdater('File.txt',' World');
+// myFileDeleter('File.txt');
 
 
 module.exports = { myFileWriter, myFileUpdater, myFileReader, myFileDeleter }
